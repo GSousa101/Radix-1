@@ -43,3 +43,4 @@ t_item	*new_lst(int flag, int id)
 	item->next = NULL;
 	return (item);
 }
+//talvez seja possivel uma função só pra todos os obj, que sete apenas o x e y.

@@ -21,4 +21,6 @@ void	add_item(t_global *global);
 t_item	*new_lst(int flag, int id);
 void	request(t_item **lst, t_item *new);
 
+
+
 #endif
