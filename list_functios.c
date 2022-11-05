@@ -1,17 +1,45 @@
 #include "main.h"
 
-//função apenas cria uma nova unidade, dando a posição x e y. inicializa os recursos pra 0
-t_unidade	*nova_unidade(int x, int y)
+void	request(t_item **lst, t_item *new)
 {
-	t_unidade	*unidade;
+	t_item	*aux;
+	t_item	*tmp;
 
-	unidade = malloc(sizeof(t_unidade));
-	unidade->pos_x = x;
-	unidade->pos_y = y;
-	unidade->recursos.agua = 0;
-	unidade->recursos.comida = 0;
-	unidade->recursos.quimicos = 0;
-	unidade->recursos.ferramentas = 0;
-	unidade->next = NULL;
-	return (unidade);
+	if (!new)
+		return ;
+	if (!(*lst))
+		*lst = new;
+	else if (new->flag > (*lst)->flag)
+	{
+		new->next = *lst;
+		*lst = new;
+		return ;
+	}
+	else
+	{
+		tmp = *lst;
+		while (tmp->next)
+		{
+			if ((tmp->next)->flag < new->flag)
+			{
+				aux = tmp->next;
+				tmp->next = new;
+				new->next = aux;
+				return ;
+			}
+			tmp = tmp->next;
+		}
+		tmp->next = new;
+	}
+}
+
+t_item	*new_lst(int flag, int id)
+{
+	t_item	*item;
+
+	item = malloc(sizeof(t_item));
+	item->flag = flag;
+	item->id = id;
+	item->next = NULL;
+	return (item);
 }
