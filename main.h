@@ -37,6 +37,7 @@ typedef struct s_porto {
 	int				pos_y;
 	//recursos disponiveis
 	int				navios; //quantos navios estão na unidade para fazer a viagem
+	int				vagas; //vagas de navios disponiveis
 	t_recursos		recursos; //recursos que o porto pode fornecer
 	struct s_porto	*next;
 }	t_porto;
