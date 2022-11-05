@@ -15,3 +15,4 @@ t_unidade	*nova_unidade(int x, int y)
 	unidade->next = NULL;
 	return (unidade);
 }
+//talvez seja possivel uma função só pra todos os obj, que sete apenas o x e y.
